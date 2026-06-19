@@ -1,0 +1,94 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 font-sans antialiased transition-colors duration-300;
+  }
+
+  body.dark {
+    @apply bg-[#0b0f19] text-slate-100;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 rounded-full;
+  }
+  .dark ::-webkit-scrollbar-thumb {
+    @apply bg-slate-800;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-400;
+  }
+  .dark ::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-700;
+  }
+}
+
+@layer components {
+  /* Premium Glassmorphism cards */
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-md border border-slate-200/80 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300;
+  }
+  .dark .glass-card {
+    @apply bg-slate-900/60 backdrop-blur-md border-slate-800/80 shadow-none hover:border-slate-700/60 transition-all duration-300;
+  }
+
+  /* Sidebar styling */
+  .sidebar-link {
+    @apply flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-600 rounded-xl transition-all duration-200 hover:bg-slate-100 hover:text-brand-600;
+  }
+  .dark .sidebar-link {
+    @apply text-slate-400 hover:bg-slate-800/60 hover:text-brand-400;
+  }
+  .sidebar-link-active {
+    @apply sidebar-link bg-brand-50 text-brand-600 shadow-sm hover:bg-brand-50 hover:text-brand-600;
+  }
+  .dark .sidebar-link-active {
+    @apply bg-brand-950/40 text-brand-400 border border-brand-800/30 hover:bg-brand-950/40 hover:text-brand-400;
+  }
+
+  /* Inputs and Buttons */
+  .input-field {
+    @apply w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-white/50 text-slate-900 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500;
+  }
+  .dark .input-field {
+    @apply border-slate-800 bg-slate-950/50 text-white focus:ring-brand-500/20 focus:border-brand-500;
+  }
+
+  .btn-primary {
+    @apply flex items-center justify-center gap-2 px-5 py-2.5 bg-brand-600 text-white font-semibold rounded-xl transition-all duration-200 hover:bg-brand-700 hover:shadow-lg hover:shadow-brand-500/20 focus:outline-none focus:ring-2 focus:ring-brand-500/50 active:scale-[0.98];
+  }
+  .btn-secondary {
+    @apply flex items-center justify-center gap-2 px-5 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-xl transition-all duration-200 focus:outline-none active:scale-[0.98];
+  }
+  .dark .btn-secondary {
+    @apply bg-slate-800 hover:bg-slate-700 text-slate-200;
+  }
+  
+  .btn-danger {
+    @apply flex items-center justify-center gap-2 px-5 py-2.5 bg-red-600 text-white font-semibold rounded-xl transition-all duration-200 hover:bg-red-700 hover:shadow-lg hover:shadow-red-500/20 focus:outline-none focus:ring-2 focus:ring-red-500/50 active:scale-[0.98];
+  }
+}
+
+/* Recharts Tooltip Custom Styling overrides */
+.recharts-default-tooltip {
+  @apply !bg-white !border-slate-200 !rounded-xl !shadow-lg !px-4 !py-3 !outline-none !text-sm !font-sans !font-medium !text-slate-800 !max-w-xs;
+}
+.dark .recharts-default-tooltip {
+  @apply !bg-slate-900 !border-slate-800 !text-slate-200;
+}
+.recharts-tooltip-label {
+  @apply !font-bold !text-slate-900 !mb-1;
+}
+.dark .recharts-tooltip-label {
+  @apply !text-white;
+}
