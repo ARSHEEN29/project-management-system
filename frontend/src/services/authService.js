@@ -1,21 +1,52 @@
 import api from './api.js';
 
 export const login = async (email, password) => {
-  const response = await api.post('/auth/login', { email, password });
-  if (response.success && response.data.token) {
-    localStorage.setItem('token', response.data.token);
-    localStorage.setItem('user', JSON.stringify(response.data.user));
+  try {
+    console.log("Sending login request...");
+
+    const response = await api.post('/auth/login', {
+      email,
+      password,
+    });
+
+    console.log("LOGIN RESPONSE:", response);
+
+    if (response.success && response.data.token) {
+      localStorage.setItem('token', response.data.token);
+      localStorage.setItem('user', JSON.stringify(response.data.user));
+    }
+
+    return response.data;
+  } catch (error) {
+    console.error("LOGIN ERROR:", error);
+
+    alert("LOGIN ERROR: " + error.message);
+
+    throw error;
   }
-  return response.data;
 };
 
 export const register = async (fullName, email, password) => {
-  const response = await api.post('/auth/register', { fullName, email, password });
-  if (response.success && response.data.token) {
-    localStorage.setItem('token', response.data.token);
-    localStorage.setItem('user', JSON.stringify(response.data.user));
+  try {
+    const response = await api.post('/auth/register', {
+      fullName,
+      email,
+      password,
+    });
+
+    if (response.success && response.data.token) {
+      localStorage.setItem('token', response.data.token);
+      localStorage.setItem('user', JSON.stringify(response.data.user));
+    }
+
+    return response.data;
+  } catch (error) {
+    console.error("REGISTER ERROR:", error);
+
+    alert("REGISTER ERROR: " + error.message);
+
+    throw error;
   }
-  return response.data;
 };
 
 export const logout = async () => {
