@@ -123,6 +123,7 @@ JWT_SECRET="your_secure_random_jwt_secret_phrase"
 1. Create a database in MySQL (e.g., `pmsnew_db`).
 2. Update the `DATABASE_URL` in `backend/.env` with your correct database credentials.
 
+
 ### 2. Run Backend Server
 
 In a terminal, execute:
@@ -144,8 +145,7 @@ npm run db:generate
 npm run dev
 ```
 
-The server will spin up on [http://localhost:5000](http://localhost:5000).
-
+The server will spin up on(https://project-management-backend-sriq.onrender.com)
 ### 3. Run Frontend App
 
 In a separate terminal, execute:
@@ -161,7 +161,7 @@ npm install
 npm run dev
 ```
 
-The application will start on [http://localhost:5173](http://localhost:5173).
+The application will start on (https://project-management-system-eight-zeta.vercel.app)
 
 ---
 
